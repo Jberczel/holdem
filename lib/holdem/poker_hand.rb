@@ -1,3 +1,5 @@
+require 'forwardable'
+
 class PokerHand
   include Comparable
   extend Forwardable
