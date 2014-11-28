@@ -83,6 +83,11 @@ class PokerRank
     pairs.any? { |count,_cards| count == size }
   end
 
+  alias_method :quads?, :four_of_a_kind?
+  alias_method :trips?, :three_of_a_kind?
+  alias_method :boat?, :full_house?
+  alias_method :two_pair?, :two_pairs?
+
 
 # BUILD HAND RANKINGS
 # Score are first ranked by type of hand [0-9].  If equal, then compared by pairs, 

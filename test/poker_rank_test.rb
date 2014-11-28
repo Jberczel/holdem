@@ -71,4 +71,23 @@ class PokerRankingTest < Minitest::Test
     assert hand1.straight_flush?
     refute hand2.straight_flush?
   end
+
+  def test_alias_method_trips?
+    cards = CardGenerator.build(%w(Jd Qd Jd Jd Td 7d Tc))
+    hand  = PokerRank.new(cards)
+    assert hand.trips?
+  end
+
+  def test_alias_method_quads?
+    cards = CardGenerator.build(%w(Jd Jd Jd Jd Td 7d Tc))
+    hand  = PokerRank.new(cards)
+    assert hand.quads?
+  end
+
+  def test_alias_method_boat?
+    cards = CardGenerator.build(%w(Jd Jd Jd Td Td 7d 6c))
+    hand  = PokerRank.new(cards)
+    assert hand.boat?
+  end
+
 end
