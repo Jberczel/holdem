@@ -23,7 +23,11 @@ class PokerHand
     score <=> other.score
   end
 
+  def just_cards
+    "#{cards.map{ |card| card.to_s }.join(' ')}"
+  end
+
   def to_s
-    "#{cards.map{ |card| card.to_s }.join(' ')} -> #{rank}"
+    "#{just_cards} -> #{rank}"
   end
 end
