@@ -16,7 +16,7 @@ Or install it yourself as:
 
     $ gem install holdem
 
-## Usage
+## Example
 
     require 'holdem'
 
@@ -34,6 +34,50 @@ Or install it yourself as:
     puts hand1 > hand2             # => false
     puts hand2 < hand3             # => false
     puts [hand1, hand2, hand3].max # => Q♦ 6♦ 2♦ 6♣ 5♥ 6♠ T♦ -> Three of a Kind (trip 6s)
+
+
+## Usage
+
+Cards can be passed to the PokerHand constructor as a string of card representations
+or as an array of card objects.  
+
+Face cards (ten, jack, queen, king, and ace) are represented by (T, J, Q, K, A).
+
+Suits (club, diamond, spade, heart) are represented by (c, d, s, h).
+    
+    puts PokerHand.new('Ac 7d 4c Td Qc Qh Ks')     # => A♣ 7♦ 4♣ T♦ Q♣ Q♥ K♠ -> Pair of Qs
+
+    card1, card2 = Card.new('Ad'), Card.new('Ah')     
+    puts PokerHand.new([card1, card2])             # => A♦ A♥ -> Pair of As
+
+There is also a Deck class to facilitate random poker hands:
+    
+    deck  = Deck.new.shuffle!
+    cards = deck.deal(7)
+    hand  = PokerHand.new(cards)
+    puts hand    # => K♦ 5♣ 4♣ 8♣ J♠ 3♣ 7♦ -> K high
+
+A number of ranks can be asked about a hand:
+
+    hand.straight_flush?
+    hand.quads?           # or hand.four_of_a_kind?
+    hand.boat?            # or hand.full_house?
+    hand.flush?
+    hand.straight?
+    hand.trips?           # or hand.three_of_a_kind? 
+    hand.two_pairs?
+    hand.pair?
+
+## TODO
+
+Build Simulations, players, table, chips, and game objects.
+
+Add methods to PokerRank for:
+
+    hand.open_ended?
+    hand.four_to_flush?
+    hand.gutshot?
+
 
 ## Contributing
 
