@@ -7,15 +7,6 @@ class PokerRank
   end
 
   def build_ranking
-    # return ["Straight flush", straight_flush_score]  if straight_flush?
-    # return ["Four of a kind", four_kind_score]       if four_of_a_kind?
-    # return ["Full House", full_house_score]          if full_house?
-    # return ["Flush", flush_score]                    if flush?
-    # return ["Straight", straight_score]              if straight?
-    # return ["Three of a Kind", three_kind_score]     if three_of_a_kind?
-    # return ["Two Pairs", two_pairs_score]            if two_pairs?
-    # return ["One Pair", pair_score]                  if pair?
-    # 
     case 
       when straight_flush?   then build_straight_flush
       when four_of_a_kind?   then build_four_kind
@@ -136,11 +127,6 @@ class PokerRank
   end
 
   # HELPER METHODS
-
-  def pair_card_values
-    pairs.map { |_count, cards| cards.first.value }
-  end
-
   def high_card
     sorted_cards.first
   end
@@ -160,11 +146,17 @@ class PokerRank
     return suit if count >= 5 
   end
 
+  private
+
+  # helper method to retrieve card value/rank for each pair
   def pair_card(num=1)
     pairs.take(num).map { |_count, cards| cards.last }.last
   end
 
-  #private
+  # helper method to calculate poker scores
+  def pair_card_values
+    pairs.map { |_count, cards| cards.first.value }
+  end
 
   def sorted_cards
     @sorted_cards ||= cards.sort_by { |card| card.value * -1 }
