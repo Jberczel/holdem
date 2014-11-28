@@ -6,10 +6,10 @@ require 'holdem/version'
 Gem::Specification.new do |spec|
   spec.name          = "holdem"
   spec.version       = Holdem::VERSION
-  spec.authors       = ["Jamie"]
+  spec.authors       = ["Jamie Berczel"]
   spec.email         = ["jxberc@gmail.com"]
-  spec.summary       = %q{Texas holdem hand rankings.}
-  spec.description   = %q{7-card poker hand rankings. }
+  spec.summary       = %q{A ruby module for creating and comparing Texas Holdem poker hands.}
+  spec.description   = %q{A ruby module for creating and comparing Texas Holdem poker hands.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
