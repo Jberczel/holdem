@@ -8,8 +8,8 @@ class Card
   FACE_CARDS  = { 'T' => 10, 'J' => 11, 'Q' => 12, 'K' => 13, 'A' => 14 }
 
   def initialize(card)
-    @rank, @suit = card.split(//)
-    @icon        = ICONS[suit]
+    @rank, @suit = card.chars if card.respond_to?(:chars)
+    @icon = ICONS[suit]
     validate(card)
   end
 

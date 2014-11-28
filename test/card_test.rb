@@ -21,13 +21,15 @@ class CardTest < Minitest::Test
     assert_equal 'c', @card4.suit
   end
 
-   def test_has_icons
+   def test_card_icons
     assert_equal '♦', @card1.icon
     assert_equal '♥', @card2.icon
   end
 
   def test_invalid_cards
+    assert_raises(ArgumentError) { Card.new(56) }
     assert_raises(ArgumentError) { Card.new('9k') }
     assert_raises(ArgumentError) { Card.new('d2') }
+    assert_raises(ArgumentError) { Card.new('a card') }
   end
 end
