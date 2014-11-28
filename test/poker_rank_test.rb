@@ -1,7 +1,4 @@
-require 'minitest/autorun'
-require "minitest/reporters"
-Minitest::Reporters.use!
-require 'holdem'
+require_relative 'test_helper'
 
 class PokerRankingTest < Minitest::Test
 

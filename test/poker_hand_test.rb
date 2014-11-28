@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require 'holdem'
+require_relative 'test_helper'
 
 class PokerHandTest < Minitest::Test
   def setup

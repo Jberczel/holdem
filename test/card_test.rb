@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require 'holdem'
+require_relative 'test_helper'
 
 class CardTest < Minitest::Test
   def setup
