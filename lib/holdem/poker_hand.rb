@@ -1,18 +1,18 @@
 class PokerHand
   include Comparable
+  extend Forwardable
+
+  def_delegators :@poker_rank, :rank, :score
+  rank_methods = [ :straight_flush?, :quads?, :four_of_a_kind?, :boat?,
+                   :full_house?, :flush?, :straight?, :three_of_a_kind?,
+                   :trips?, :two_pairs?, :two_pair?, :pair? ]
+  def_delegators :@poker_rank, *rank_methods
+
   attr_reader :cards, :poker_rank
 
   def initialize(cards)
     @cards = cards.is_a?(String) ? CardGenerator.build(cards.split) : cards
     @poker_rank = PokerRank.new(@cards)
-  end
-
-  def rank
-    poker_rank.rank
-  end
-
-  def score
-    poker_rank.score
   end
 
   def count

@@ -46,4 +46,13 @@ class PokerHandTest < Minitest::Test
     assert_equal [1, 4, 12, 11, 10, 9, 5], @pair.score
     assert  other_pair > @pair
   end
+
+  def test_delegated_methods
+    refute @pair.quads?
+    refute @pair.straight_flush?
+    refute @pair.trips?
+    assert @pair.pair?
+    assert @two_pairs.two_pairs?
+    assert @straight.straight?
+  end
 end
