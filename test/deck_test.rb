@@ -11,14 +11,15 @@ class DeckTest < Minitest::Test
   end
 
   def test_deck_next_card
-    card = @deck.dup.pop
+    card = Deck.new.pop
     assert_equal card, @deck.pop
     assert_equal 51, @deck.size
   end
 
   def test_shuffle
-    unshuffled = @deck.dup
+    unshuffled = @deck
     shuffled = @deck.shuffle
+
     refute_equal unshuffled, shuffled
   end
 end

@@ -1,16 +1,23 @@
-class Deck < Array
+require 'forwardable'
+
+class Deck
+  extend Forwardable
+  def_delegators :@deck, :shuffle, :pop, :size
+  attr_reader :deck
+
   def initialize
+    @deck = []
     build_deck
   end
 
-  # add test for #deal
   alias_method :deal, :pop
+  alias_method :count, :size
 
   private
 
   def build_deck
     Card::RANKS.each do |rank|
-      Card::SUITS.each { |suit| self << Card.new(rank + suit) }
+      Card::SUITS.each { |suit| deck << Card.new(rank + suit) }
     end
   end
 end
