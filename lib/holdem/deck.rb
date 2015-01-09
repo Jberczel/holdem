@@ -2,7 +2,7 @@ require 'forwardable'
 
 class Deck
   extend Forwardable
-  def_delegators :@deck, :shuffle, :pop, :size
+  def_delegators :@deck, :shuffle, :shuffle!, :pop, :size
   attr_reader :deck
 
   def initialize

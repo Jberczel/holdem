@@ -4,9 +4,8 @@ class PokerHand
   include Comparable
   extend Forwardable
 
-  def_delegators :@poker_rank, :rank, :score
-  rank_methods = [ :straight_flush?, :quads?, :four_of_a_kind?, :boat?,
-                   :full_house?, :flush?, :straight?, :three_of_a_kind?,
+  rank_methods = [ :rank, :score, :straight_flush?, :quads?, :four_of_a_kind?,
+                   :boat?, :full_house?, :flush?, :straight?, :three_of_a_kind?,
                    :trips?, :two_pairs?, :two_pair?, :pair? ]
   def_delegators :@poker_rank, *rank_methods
 
