@@ -26,9 +26,11 @@ class PokerRank
 # values in descending order using the #pairs method.  The hand ranking methods
 # below filter the pairs array to determine type of hand.
 
-  #need to fix
   def straight_flush?
-    straight? && flush?              
+    sorted_cards.each_cons(5) do |check_cards|
+      return true if five_card_straight?(check_cards.map(&:value)) && check_cards.map(&:suit).uniq.one?
+    end
+    false
   end
 
   def four_of_a_kind?

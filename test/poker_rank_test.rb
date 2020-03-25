@@ -62,7 +62,6 @@ class PokerRankingTest < Minitest::Test
   end
 
    def test_straight_flush?
-    skip
     cards1 = CardGenerator.build(%w(Jd Qd Ad Kd Td 7d Tc))
     hand1  = PokerRank.new(cards1)
     cards2 = CardGenerator.build(%w(2d 3h 4h 5h 6h 7d 8h))
