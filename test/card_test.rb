@@ -21,7 +21,7 @@ class CardTest < Minitest::Test
     assert_equal 'c', @card4.suit
   end
 
-   def test_card_icons
+  def test_card_icons
     assert_equal '♦', @card1.icon
     assert_equal '♥', @card2.icon
   end

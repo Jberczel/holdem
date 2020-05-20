@@ -55,13 +55,13 @@ class PokerRankingTest < Minitest::Test
     assert_equal true, hand.straight?
   end
 
-   def test_full_house?
+  def test_full_house?
     cards = CardGenerator.build(%w(Jd 8s Jh 5h 8d Jd Tc))
     hand = PokerRank.new(cards)
     assert_equal true, hand.full_house?
   end
 
-   def test_straight_flush?
+  def test_straight_flush?
     cards1 = CardGenerator.build(%w(Jd Qd Ad Kd Td 7d Tc))
     hand1  = PokerRank.new(cards1)
     cards2 = CardGenerator.build(%w(2d 3h 4h 5h 6h 7d 8h))
