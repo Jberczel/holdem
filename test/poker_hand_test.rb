@@ -2,22 +2,22 @@ require_relative 'test_helper'
 
 class PokerHandTest < Minitest::Test
   def setup
-    hand1      = CardGenerator.build(%w(4c 4h 5s Qs Jc 9c Tc))
-    hand2      = CardGenerator.build(%w(7c 4h 7s Qs Kc Qc Tc))
-    hand3      = CardGenerator.build(%w(Ac 2c 3h 4h 5s 6c Qd))
-    hand4      = CardGenerator.build(%w(Ac 9c 9h 9h 5s 6c Qd)) 
-    @pair       = PokerHand.new(hand1)
-    @two_pairs  = PokerHand.new(hand2)
-    @three_kind = PokerHand.new(hand4)
-    @straight   = PokerHand.new(hand3)
+    hand1      = Holdem::CardGenerator.build(%w(4c 4h 5s Qs Jc 9c Tc))
+    hand2      = Holdem::CardGenerator.build(%w(7c 4h 7s Qs Kc Qc Tc))
+    hand3      = Holdem::CardGenerator.build(%w(Ac 2c 3h 4h 5s 6c Qd))
+    hand4      = Holdem::CardGenerator.build(%w(Ac 9c 9h 9h 5s 6c Qd)) 
+    @pair       = Holdem::PokerHand.new(hand1)
+    @two_pairs  = Holdem::PokerHand.new(hand2)
+    @three_kind = Holdem::PokerHand.new(hand4)
+    @straight   = Holdem::PokerHand.new(hand3)
   end
 
   def test_poker_ranking_dependency
-    assert_equal @pair.poker_rank.class, PokerRank
+    assert_equal @pair.poker_rank.class, Holdem::PokerRank
   end
 
   def test_initialize_with_string_representation
-    assert_equal 7, PokerHand.new("Ac Ad Kd 5s 5h 4c 5c").count
+    assert_equal 7, Holdem::PokerHand.new("Ac Ad Kd 5s 5h 4c 5c").count
   end
 
   def test_rank
@@ -39,8 +39,8 @@ class PokerHandTest < Minitest::Test
   end
 
   def test_comparison_with_kicker
-    other_cards = CardGenerator.build(%w(Ac 4c 4h 9h 6c Jh Qd)) 
-    other_pair  = PokerHand.new(other_cards)
+    other_cards = Holdem::CardGenerator.build(%w(Ac 4c 4h 9h 6c Jh Qd)) 
+    other_pair  = Holdem::PokerHand.new(other_cards)
     assert_equal [1, 4, 14, 12, 11, 9, 6], other_pair.score
     assert_equal [1, 4, 12, 11, 10, 9, 5], @pair.score
     assert  other_pair > @pair

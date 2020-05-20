@@ -5,5 +5,3 @@ require 'holdem/deck'
 require 'holdem/poker_hand'
 require 'holdem/poker_rank'
 
-module Holdem
-end

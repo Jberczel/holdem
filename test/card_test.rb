@@ -2,10 +2,10 @@ require_relative 'test_helper'
 
 class CardTest < Minitest::Test
   def setup
-    @card1 = Card.new('Kd')
-    @card2 = Card.new('Th')
-    @card3 = Card.new('4s')
-    @card4 = Card.new('7c')
+    @card1 = Holdem::Card.new('Kd')
+    @card2 = Holdem::Card.new('Th')
+    @card3 = Holdem::Card.new('4s')
+    @card4 = Holdem::Card.new('7c')
   end
 
   def test_card_rank
@@ -27,9 +27,9 @@ class CardTest < Minitest::Test
   end
 
   def test_invalid_cards
-    assert_raises(ArgumentError) { Card.new(56) }
-    assert_raises(ArgumentError) { Card.new('9k') }
-    assert_raises(ArgumentError) { Card.new('d2') }
-    assert_raises(ArgumentError) { Card.new('a card') }
+    assert_raises(ArgumentError) { Holdem::Card.new(56) }
+    assert_raises(ArgumentError) { Holdem::Card.new('9k') }
+    assert_raises(ArgumentError) { Holdem::Card.new('d2') }
+    assert_raises(ArgumentError) { Holdem::Card.new('a card') }
   end
 end

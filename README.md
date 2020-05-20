@@ -20,12 +20,12 @@ Or install it yourself as:
 
     require 'holdem'
 
-    deck = Deck.new
+    deck = Holdem::Deck.new
     deck.shuffle!
 
-    hand1 = PokerHand.new(deck.deal(7))
-    hand2 = PokerHand.new(deck.deal(7))
-    hand3 = PokerHand.new("4c Kc 4h 5d 6s Kd Qs")
+    hand1 = Holdem::PokerHand.new(deck.deal(7))
+    hand2 = Holdem::PokerHand.new(deck.deal(7))
+    hand3 = Holdem::PokerHand.new("4c Kc 4h 5d 6s Kd Qs")
 
     puts hand1                     # => 5♦ K♣ T♠ J♥ 8♥ 8♠ 2♥ -> Pair of 8s
     puts hand2                     # => Q♦ 6♦ 2♦ 6♣ 5♥ 6♠ T♦ -> Three of a Kind (trip 6s)
@@ -45,16 +45,16 @@ Face cards (ten, jack, queen, king, and ace) are represented by (T, J, Q, K, A).
 
 Suits (club, diamond, spade, heart) are represented by (c, d, s, h).
     
-    puts PokerHand.new('Ac 7d 4c Td Qc Qh Ks')     # => A♣ 7♦ 4♣ T♦ Q♣ Q♥ K♠ -> Pair of Qs
+    puts Holdem::PokerHand.new('Ac 7d 4c Td Qc Qh Ks')     # => A♣ 7♦ 4♣ T♦ Q♣ Q♥ K♠ -> Pair of Qs
 
     card1, card2 = Card.new('Ad'), Card.new('Ah')     
-    puts PokerHand.new([card1, card2])             # => A♦ A♥ -> Pair of As
+    puts Holdem::PokerHand.new([card1, card2])             # => A♦ A♥ -> Pair of As
 
 There is also a Deck class to facilitate random poker hands:
     
-    deck  = Deck.new.shuffle!
+    deck  = Holdem::Deck.new.shuffle!
     cards = deck.deal(7)
-    hand  = PokerHand.new(cards)
+    hand  = Holdem::PokerHand.new(cards)
     puts hand    # => K♦ 5♣ 4♣ 8♣ J♠ 3♣ 7♦ -> K high
 
 A number of ranks can be asked about a hand:

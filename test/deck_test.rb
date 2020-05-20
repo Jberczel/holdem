@@ -3,7 +3,7 @@ require_relative 'test_helper'
 class DeckTest < Minitest::Test
 
   def setup
-    @deck = Deck.new
+    @deck = Holdem::Deck.new
   end
 
   def test_deck_has_52_cards
@@ -11,7 +11,7 @@ class DeckTest < Minitest::Test
   end
 
   def test_deck_next_card
-    card = Deck.new.pop
+    card = Holdem::Deck.new.pop
     assert_equal card, @deck.pop
     assert_equal 51, @deck.size
   end
