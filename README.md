@@ -45,10 +45,10 @@ Face cards (ten, jack, queen, king, and ace) are represented by (T, J, Q, K, A).
 
 Suits (club, diamond, spade, heart) are represented by (c, d, s, h).
     
-    puts Holdem::PokerHand.new('Ac 7d 4c Td Qc Qh Ks')     # => A♣ 7♦ 4♣ T♦ Q♣ Q♥ K♠ -> Pair of Qs
+    puts Holdem::PokerHand.new('Ac 7d 4c Td Qc Qh Ks')             # => A♣ 7♦ 4♣ T♦ Q♣ Q♥ K♠ -> Pair of Qs
 
-    card1, card2 = Card.new('Ad'), Card.new('Ah')     
-    puts Holdem::PokerHand.new([card1, card2])             # => A♦ A♥ -> Pair of As
+    card1, card2 = Holdem::Card.new('Ad'), Holdem::Card.new('Ah')     
+    puts Holdem::PokerHand.new([card1, card2])                     # => A♦ A♥ -> Pair of As
 
 There is also a Deck class to facilitate random poker hands:
     
