@@ -70,6 +70,20 @@ class PokerRankingTest < Minitest::Test
     refute hand2.straight_flush?
   end
 
+  def test_open_ended?
+    cards1 = Holdem::CardGenerator.build(%w(Jd Qd Ad Kd 2d))
+    hand1  = Holdem::PokerHand.new(cards1)
+    refute hand1.open_ended?
+
+    cards2 = Holdem::CardGenerator.build(%w(Jd Qd Td Kd 2d))
+    hand2  = Holdem::PokerHand.new(cards2)
+    assert hand2.open_ended?
+
+    cards3 = Holdem::CardGenerator.build(%w(Jd Qd Td Kd 9d))
+    hand3  = Holdem::PokerHand.new(cards3)
+    refute hand3.open_ended?
+  end
+
   def test_alias_method_trips?
     cards = Holdem::CardGenerator.build(%w(Jd Qd Jd Jd Td 7d Tc))
     hand  = Holdem::PokerHand.new(cards)
