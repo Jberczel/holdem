@@ -7,7 +7,7 @@ module Holdem
 
     rank_methods = [ :rank, :score, :straight_flush?, :quads?, :four_of_a_kind?,
                      :boat?, :full_house?, :flush?, :straight?, :three_of_a_kind?,
-                     :trips?, :two_pairs?, :two_pair?, :pair? ]
+                     :trips?, :two_pairs?, :two_pair?, :pair?, :open_ended? ]
     def_delegators :@poker_rank, *rank_methods
 
     attr_reader :cards, :poker_rank

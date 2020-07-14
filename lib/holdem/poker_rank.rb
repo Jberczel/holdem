@@ -56,6 +56,10 @@ module Holdem
       false
     end
 
+    def four_card_straight?(list)
+      (list.first - list.last).abs == 3 && list.uniq.length == 4
+    end
+
     def five_card_straight?(list)
       (list.first - list.last).abs == 4 && list.uniq.length == 5
     end
@@ -75,6 +79,20 @@ module Holdem
 
     def kinds?(size)
       pairs.any? { |count,_cards| count == size }
+    end
+
+    def open_ended?
+      return false if straight?
+
+      card_values = sorted_values
+      # Add ace to end of sorted values if present
+      card_values.push(1) if card_values.include?(14)
+      card_values.each_cons(4) do |vals|
+        if four_card_straight?(vals) && vals.last != 1 && vals.first != 14
+          return true
+        end
+      end
+      false
     end
 
     alias_method :quads?, :four_of_a_kind?
