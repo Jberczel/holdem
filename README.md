@@ -74,7 +74,6 @@ Build Simulations, players, table, chips, and game objects.
 
 Add methods to PokerRank for:
 
-    hand.open_ended?
     hand.four_to_flush?
     hand.gutshot?
 
